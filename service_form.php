@@ -26,16 +26,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $sql = "INSERT INTO service_request (name, email, phone_number, needed_service, budget, message) 
             VALUES ('$name', '$email','$phone', '$services', '$budget', '$message')";
 
-if (isset($_POST['budget']) && is_numeric($_POST['budget'])) {
-    // It's a number, so it's safe to proceed
-    $budget = floatval($_POST['budget']); // Use floatval() to allow decimals
-
-    // ... your database insert code here ...
-
-} else {
-    // The budget was not a valid number or was not set
-    // Handle the error (e.g., show a message to the user)
-    $budget = 0.00; // Or set a default value
 }
     if ($conn->query($sql) === TRUE) {
         echo "<h2>Thank you for your submission!</h2>";
